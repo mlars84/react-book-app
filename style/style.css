@@ -1,0 +1,16 @@
+html, body {
+  background: #A6E7FF;
+}
+
+.book-details {
+  background: #44D7A8;
+}
+
+.books {
+  background: #44D7A8;
+}
+
+.books:hover {
+  background: #FC74FD;
+  cursor: pointer;
+}

@@ -6,10 +6,10 @@ class BookDetail extends Component {
     const props = this.props.book
     console.log('BookDetail props:', props)
     if (!this.props.book) {
-      return <h3>Select a book to get started.</h3>
+      return <h3 className="book-details">Select a book to get started.</h3>
     }
     return (
-      <div>
+      <div className="book-details">
         <h3>Details for:</h3>
         <div>You selected {props.title} by {props.author}.</div>
       </div>

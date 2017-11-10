@@ -20,7 +20,7 @@ class BookList extends Component {
   render() {
     console.log('this.props:', this.props)
     return (
-      <ul className="list-group col-sm-4">
+      <ul className="book-list list-group col-sm-4">
         {this.renderList()}
       </ul>
     )

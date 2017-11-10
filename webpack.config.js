@@ -1,6 +1,11 @@
+const DashboardPlugin = require('webpack-dashboard/plugin');
+
 module.exports = {
   entry: [
     './src/index.js'
+  ],
+  plugins: [
+    new DashboardPlugin({ port: 7000 })
   ],
   output: {
     path: __dirname,
@@ -12,7 +17,7 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel',
       query: {
-        presets: ['react', 'es2015', 'stage-1']
+        presets: ['react', 'env', 'stage-1']
       }
     }]
   },
@@ -21,6 +26,8 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: './'
+    contentBase: './',
+    inline: true,
+    port: 7000
   }
 };

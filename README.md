@@ -20,6 +20,8 @@ Is in charge of managing our application state and that state is a single plain 
 ### Reducer
 
 - A function that returns a piece of the application state. Since our application can have many pieces of state, we can have many reducers. You can have as many reducers as pieces of state. At the end of the day, reducer should just return an array of objects
+- Application state is formed by reducers. For each key in `combineReducers`, we assign one reducer
+- Reducers are in charge of changing state overtime with `Actions`. Whenever an action is dispatched, it flows through all the different reducers in our application, reducers have option to return a different piece of state than usual
 
 ### Containers
 
@@ -39,3 +41,11 @@ Is in charge of managing our application state and that state is a single plain 
 - `Action Creator` is just a function that returns an object. The object is then automatically sent to all of the different reducers inside the app. Reducers can choose to return a different piece of state depending on what the action is. The newly returned piece of state then gets piped into the app state/react app and causes to re-render.
 - once all reducers process action and return state, they notify containers of change to state and re-render with new props.
 - Actions always contain a type and sometimes a payload. Type is always UPPER_CASE, usually a string, always separated by _:
+
+### Container/Action/Reducer Cycle
+
+- User has some interaction with UI aka clicks on something, which calls action creator
+- Action Creator is a function that returns an action with type and data from UI
+- Action automatically sent to all reducers
+- In this case, activeBook property on state set to the value returned from the active book reducer
+- All reducers processed the action and returned new state. New state has been assembled. Notify containers of the changes to state. On notification, containers will rerender with new props
